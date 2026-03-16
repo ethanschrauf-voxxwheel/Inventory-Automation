@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.14 (Automate_Inventory_Data_Matching_To_Server)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.14 (Automate_Inventory_Data_Matching_To_Server)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.14 (Inventory-Automation)" project-jdk-type="Python SDK" />
 </project>

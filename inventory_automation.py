@@ -7,8 +7,8 @@ import pandas as pd
 from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Border, Side
 
-reports_folder = r"C:\Users\EthanSchrauf\OneDrive - Voxx Products\Desktop\Reports"
-master_data_path = r"C:\Users\EthanSchrauf\OneDrive - Voxx Products\Desktop\Reports\Voxx_Inventory.csv"
+reports_folder = r"C:\Users\Administrator\OneDrive - Voxx Products\Desktop\Reports"
+master_data_path = r"C:\Users\Administrator\OneDrive - Voxx Products\Desktop\Reports\Voxx_Inventory.csv"
 output_dir = r"\\TORCPSER2\Public\INVENTORY"
 
 
@@ -173,7 +173,7 @@ def main() -> None:
     print("Loading data...")
 
     today_str = datetime.today().strftime("%#m-%#d-%Y")
-    output_filename = f"{today_str} Inventory_NEW_TEST.xlsx"
+    output_filename = f"{today_str} Inventory_NEW.xlsx"
     output_filepath = os.path.join(output_dir, output_filename)
 
     clean_columns = ["Item_Desc", "DT Code", "CA_Qty", "TN_Qty", "TX_Qty", "Total_Qty"]
@@ -226,7 +226,7 @@ def main() -> None:
     print(f"Saving data to {output_filepath}...")
     final_df.to_excel(output_filepath, index=False)
 
-    csv_filename = "Voxx_InventoryTEST.csv"
+    csv_filename = "Voxx_Inventory.csv"
     csv_filepath = os.path.join(output_dir, csv_filename)
 
     print(f"Overwriting CSV file at {csv_filepath}...")
