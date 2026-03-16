@@ -7,7 +7,9 @@ import pandas as pd
 from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Border, Side
 
+# One drive folder paths that get replaced daily with the morning email.
 reports_folder = r"C:\Users\Administrator\OneDrive - Voxx Products\Desktop\Reports"
+# Current master data path
 master_data_path = r"C:\Users\Administrator\OneDrive - Voxx Products\Desktop\Reports\Voxx_Inventory.csv"
 output_dir = r"\\TORCPSER2\Public\INVENTORY"
 
