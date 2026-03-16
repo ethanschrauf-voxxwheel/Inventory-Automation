@@ -1,0 +1,93 @@
+Using latest snapshot file: C:\Users\EthanSchrauf\OneDrive - Voxx Products\Desktop\Reports\report.csv
+Loading data...
+Matching data...
+Saving data to \\TORCPSER2\Public\INVENTORY\3-16-2026 Inventory_NEW_TEST.xlsx...
+Overwriting CSV file at \\TORCPSER2\Public\INVENTORY\Voxx_InventoryTEST.csv...
+Applying Excel formatting...
+Automation complete! :P
+Using latest snapshot file: C:\Users\EthanSchrauf\OneDrive - Voxx Products\Desktop\Reports\report.csv
+Loading data...
+Matching data...
+Saving data to \\TORCPSER2\Public\INVENTORY\3-16-2026 Inventory_NEW_TEST.xlsx...
+Overwriting CSV file at \\TORCPSER2\Public\INVENTORY\Voxx_InventoryTEST.csv...
+Applying Excel formatting...
+Automation complete! :P
+Traceback (most recent call last):
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 243, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 167, in main
+    raise FileNotFoundError(
+        f"Output directory is not reachable from this run context: {output_dir}"
+    )
+FileNotFoundError: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+ERROR: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+Traceback (most recent call last):
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 243, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 167, in main
+    raise FileNotFoundError(
+        f"Output directory is not reachable from this run context: {output_dir}"
+    )
+FileNotFoundError: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+==== Mon 03/16/2026  9:16:15.98 ==== 
+Using latest snapshot file: C:\Users\EthanSchrauf\OneDrive - Voxx Products\Desktop\Reports\report.csv
+Loading data...
+Matching data...
+Saving data to \\TORCPSER2\Public\INVENTORY\3-16-2026 Inventory_NEW_TEST.xlsx...
+Overwriting CSV file at \\TORCPSER2\Public\INVENTORY\Voxx_InventoryTEST.csv...
+Applying Excel formatting...
+Automation complete! :P
+Exit code: 0 
+==== Mon 03/16/2026  9:16:54.04 ==== 
+Traceback (most recent call last):
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 243, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 167, in main
+    raise FileNotFoundError(
+        f"Output directory is not reachable from this run context: {output_dir}"
+    )
+FileNotFoundError: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+ERROR: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+Traceback (most recent call last):
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 243, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 167, in main
+    raise FileNotFoundError(
+        f"Output directory is not reachable from this run context: {output_dir}"
+    )
+FileNotFoundError: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+Exit code: 1 
+==== Mon 03/16/2026  9:17:02.10 ==== 
+Traceback (most recent call last):
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 243, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 167, in main
+    raise FileNotFoundError(
+        f"Output directory is not reachable from this run context: {output_dir}"
+    )
+FileNotFoundError: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+ERROR: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+Traceback (most recent call last):
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 243, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 167, in main
+    raise FileNotFoundError(
+        f"Output directory is not reachable from this run context: {output_dir}"
+    )
+FileNotFoundError: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+Exit code: 1 
+==== Mon 03/16/2026  9:17:05.29 ==== 
+Using latest snapshot file: C:\Users\EthanSchrauf\OneDrive - Voxx Products\Desktop\Reports\report.csv
+Loading data...
+Matching data...
+Saving data to \\TORCPSER2\Public\INVENTORY\3-16-2026 Inventory_NEW_TEST.xlsx...
+Overwriting CSV file at \\TORCPSER2\Public\INVENTORY\Voxx_InventoryTEST.csv...
+Applying Excel formatting...
+Automation complete! :P
+Exit code: 0 

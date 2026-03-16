@@ -1,0 +1,45 @@
+Traceback (most recent call last):
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 5, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+Exit code: 1 
+Traceback (most recent call last):
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 5, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+Exit code: 1 
+Traceback (most recent call last):
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 5, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+Exit code: 1 
+Traceback (most recent call last):
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 5, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+Exit code: 1 
+Traceback (most recent call last):
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 5, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+Exit code: 1 
+Traceback (most recent call last):
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 243, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 167, in main
+    raise FileNotFoundError(
+        f"Output directory is not reachable from this run context: {output_dir}"
+    )
+FileNotFoundError: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+ERROR: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+Traceback (most recent call last):
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 243, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 167, in main
+    raise FileNotFoundError(
+        f"Output directory is not reachable from this run context: {output_dir}"
+    )
+FileNotFoundError: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+Exit code: 1 
