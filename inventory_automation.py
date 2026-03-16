@@ -1,4 +1,5 @@
 import os
+import shutil
 import glob
 import traceback
 from datetime import datetime
@@ -236,6 +237,14 @@ def main() -> None:
 
     print("Applying Excel formatting...")
     format_output_excel(output_filepath)
+
+    print("Copying final file to OneDrive...")
+    # Creates a subfolder in OneDrive Reports folder so it doesn't get mixed up with the raw NetSuite CSVs
+    onedrive_export_dir = os.path.join(reports_folder, "Completed_Inventory")
+    os.makedirs(onedrive_export_dir, exist_ok=True)
+
+    onedrive_filepath = os.path.join(onedrive_export_dir, output_filename)
+    shutil.copy2(output_filepath, onedrive_filepath)
 
     print("Automation complete! :P")
 
