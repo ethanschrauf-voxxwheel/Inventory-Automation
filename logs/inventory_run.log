@@ -43,3 +43,43 @@ Traceback (most recent call last):
     )
 FileNotFoundError: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
 Exit code: 1 
+Traceback (most recent call last):
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 253, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 170, in main
+    raise FileNotFoundError(
+        f"Output directory is not reachable from this run context: {output_dir}"
+    )
+FileNotFoundError: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+ERROR: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+Traceback (most recent call last):
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 253, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 170, in main
+    raise FileNotFoundError(
+        f"Output directory is not reachable from this run context: {output_dir}"
+    )
+FileNotFoundError: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+Exit code: 1 
+Traceback (most recent call last):
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 253, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 170, in main
+    raise FileNotFoundError(
+        f"Output directory is not reachable from this run context: {output_dir}"
+    )
+FileNotFoundError: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+ERROR: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+Traceback (most recent call last):
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 253, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\EthanSchrauf\PycharmProjects\Automate_Inventory_Data_Matching_To_Server\inventory_automation.py", line 170, in main
+    raise FileNotFoundError(
+        f"Output directory is not reachable from this run context: {output_dir}"
+    )
+FileNotFoundError: Output directory is not reachable from this run context: \\TORCPSER2\Public\INVENTORY
+Exit code: 1 

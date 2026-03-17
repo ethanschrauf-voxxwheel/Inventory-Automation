@@ -1,4 +1,5 @@
 import os
+import shutil
 import glob
 import traceback
 from datetime import datetime
@@ -7,8 +8,10 @@ import pandas as pd
 from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Border, Side
 
-reports_folder = r"C:\Users\EthanSchrauf\OneDrive - Voxx Products\Desktop\Reports"
-master_data_path = r"C:\Users\EthanSchrauf\OneDrive - Voxx Products\Desktop\Reports\Voxx_Inventory.csv"
+# One drive folder paths that get replaced daily with the morning email.
+reports_folder = r"C:\Users\Administrator\OneDrive - Voxx Products\Desktop\Reports"
+# Current master data path
+master_data_path = r"C:\Users\Administrator\OneDrive - Voxx Products\Desktop\Reports\Voxx_Inventory.csv"
 output_dir = r"\\TORCPSER2\Public\INVENTORY"
 
 
@@ -116,6 +119,7 @@ def format_output_excel(file_path: str) -> None:
     """
     workbook = load_workbook(file_path)
     worksheet = workbook.active
+    worksheet.title = "Voxx_Inventory"
 
     blue_fill = PatternFill(fill_type="solid", start_color="C0E6F5", end_color="C0E6F5")
     yellow_fill = PatternFill(fill_type="solid", start_color="FFFF00", end_color="FFFF00")
@@ -136,6 +140,7 @@ def format_output_excel(file_path: str) -> None:
         cell.fill = blue_fill
         cell.font = bold_font
         cell.border = border
+        cell.center_horizontal = True
 
     item_col = headers.get("Item")
     article_col = headers.get("Article")
@@ -144,9 +149,11 @@ def format_output_excel(file_path: str) -> None:
     for row in range(2, worksheet.max_row + 1):
         if item_col is not None:
             worksheet.cell(row=row, column=item_col).font = bold_font
+            worksheet.cell(row=row, column=item_col).center_horizontal = True
 
         if article_col is not None:
             worksheet.cell(row=row, column=article_col).font = bold_font
+            worksheet.cell(row=row, column=item_col).center_horizontal = True
 
         if total_col is not None:
             total_cell = worksheet.cell(row=row, column=total_col)
@@ -173,7 +180,7 @@ def main() -> None:
     print("Loading data...")
 
     today_str = datetime.today().strftime("%#m-%#d-%Y")
-    output_filename = f"{today_str} Inventory_NEW_TEST.xlsx"
+    output_filename = f"{today_str} Inventory_NEW.xlsx"
     output_filepath = os.path.join(output_dir, output_filename)
 
     clean_columns = ["Item_Desc", "DT Code", "CA_Qty", "TN_Qty", "TX_Qty", "Total_Qty"]
@@ -226,7 +233,7 @@ def main() -> None:
     print(f"Saving data to {output_filepath}...")
     final_df.to_excel(output_filepath, index=False)
 
-    csv_filename = "Voxx_InventoryTEST.csv"
+    csv_filename = "Voxx_Inventory.csv"
     csv_filepath = os.path.join(output_dir, csv_filename)
 
     print(f"Overwriting CSV file at {csv_filepath}...")
@@ -234,6 +241,13 @@ def main() -> None:
 
     print("Applying Excel formatting...")
     format_output_excel(output_filepath)
+
+    print("Copying final file to OneDrive...")
+    # Creates a subfolder in OneDrive Reports folder so it doesn't get mixed up with the raw NetSuite CSVs
+    onedrive_export_dir = r"C:\Users\EthanSchrauf\OneDrive - Voxx Products\Desktop\Reports\Inventory Exports"
+
+    onedrive_filepath = os.path.join(onedrive_export_dir, output_filename)
+    shutil.copy2(output_filepath, onedrive_filepath)
 
     print("Automation complete! :P")
 
