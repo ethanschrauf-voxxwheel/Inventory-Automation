@@ -7,7 +7,6 @@ from datetime import datetime
 import pandas as pd
 from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
-from openpyxl.worksheet.errors import IgnoredError
 
 # One drive folder paths that get replaced daily with the morning email.
 reports_folder = r"C:\Users\Administrator\OneDrive - Voxx Products\Desktop\Reports"
@@ -135,8 +134,6 @@ def format_output_excel(file_path: str) -> None:
 
     center_align = Alignment(horizontal="center")
 
-
-
     headers = {}
     for cell in worksheet[1]:
         headers[cell.value] = cell.column
@@ -144,7 +141,6 @@ def format_output_excel(file_path: str) -> None:
         cell.font = bold_font
         cell.border = border
         cell.alignment = center_align
-
 
     item_col = headers.get("Item")
     article_col = headers.get("Article")
@@ -165,7 +161,6 @@ def format_output_excel(file_path: str) -> None:
             total_cell.fill = yellow_fill
             total_cell.font = regular_font
             total_cell.alignment = center_align
-
 
     for col in range(1, worksheet.max_column + 1):
         for row in range(1, worksheet.max_row + 1):
@@ -188,7 +183,7 @@ def main() -> None:
     print("Loading data...")
 
     today_str = datetime.today().strftime("%#m-%#d-%Y")
-    output_filename = f"{today_str} Inventory_NEW2.xlsx"
+    output_filename = f"{today_str} Inventory_NEW.xlsx"
     output_filepath = os.path.join(output_dir, output_filename)
 
     clean_columns = ["Item_Desc", "DT Code", "CA_Qty", "TN_Qty", "TX_Qty", "Total_Qty"]
@@ -228,11 +223,11 @@ def main() -> None:
     final_df = merged_df[["Item", "Article", "Brand", "MSRP", "Total_Qty", "CA_Qty", "TX_Qty", "TN_Qty"]].copy()
     final_df.columns = ["Item", "Article", "Brand", "MSRP", "TOTAL", "CA", "TX", "TN"]
 
-    text_columns = ["Item", "Brand"]
+    text_columns = ["Item", "Article", "Brand"]
     for col in text_columns:
         final_df[col] = final_df[col].fillna("")
 
-    numeric_columns = ["Article", "MSRP", "TOTAL", "CA", "TX", "TN"]
+    numeric_columns = ["MSRP", "TOTAL", "CA", "TX", "TN"]
     for col in numeric_columns:
         final_df[col] = pd.to_numeric(final_df[col], errors="coerce").fillna(0)
 
@@ -251,8 +246,11 @@ def main() -> None:
     format_output_excel(output_filepath)
 
     print("Copying final file to OneDrive...")
+
     # Creates a subfolder in OneDrive Reports folder so it doesn't get mixed up with the raw NetSuite CSVs
     onedrive_export_dir = r"C:\Users\Administrator\OneDrive - Voxx Products\Desktop\Reports\Completed_Inventory"
+
+    os.makedirs(onedrive_export_dir, exist_ok=True)  # Forces the folder to exist
 
     onedrive_filepath = os.path.join(onedrive_export_dir, output_filename)
     shutil.copy2(output_filepath, onedrive_filepath)
