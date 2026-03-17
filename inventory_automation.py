@@ -167,6 +167,11 @@ def format_output_excel(file_path: str) -> None:
             worksheet.cell(row=row, column=col).border = border
             worksheet.cell(row=row, column=col).alignment = center_align
 
+    # Left align col 1
+    worksheet.cell(row=1, column=1).alignment = Alignment(horizontal="left", vertical="center")
+    for row in range(2, worksheet.max_row + 1):
+        worksheet.cell(row=row, column=1).alignment = Alignment(horizontal="left", vertical="center")
+
     worksheet.column_dimensions["A"].width = 23
 
     workbook.save(file_path)
