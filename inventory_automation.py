@@ -157,8 +157,8 @@ def format_output_excel(file_path: str) -> None:
 
         if article_col is not None:
             worksheet.cell(row=row, column=article_col).font = bold_font
-            worksheet.cell(row=row, column=item_col).alignment = center_align
-            worksheet.cell(row=row, column=item_col).number_format = '@'
+            worksheet.cell(row=row, column=article_col).alignment = center_align
+            worksheet.cell(row=row, column=article_col).number_format = "0"
 
         if total_col is not None:
             total_cell = worksheet.cell(row=row, column=total_col)
@@ -228,15 +228,15 @@ def main() -> None:
     final_df = merged_df[["Item", "Article", "Brand", "MSRP", "Total_Qty", "CA_Qty", "TX_Qty", "TN_Qty"]].copy()
     final_df.columns = ["Item", "Article", "Brand", "MSRP", "TOTAL", "CA", "TX", "TN"]
 
-    text_columns = ["Item", "Article", "Brand"]
+    text_columns = ["Item", "Brand"]
     for col in text_columns:
         final_df[col] = final_df[col].fillna("")
 
-    numeric_columns = ["MSRP", "TOTAL", "CA", "TX", "TN"]
+    numeric_columns = ["Article", "MSRP", "TOTAL", "CA", "TX", "TN"]
     for col in numeric_columns:
         final_df[col] = pd.to_numeric(final_df[col], errors="coerce").fillna(0)
 
-    final_df["Article"] = final_df["Article"].astype("string")
+    final_df["Article"] = final_df["Article"].astype("Int64")
 
     print(f"Saving data to {output_filepath}...")
     final_df.to_excel(output_filepath, index=False)
