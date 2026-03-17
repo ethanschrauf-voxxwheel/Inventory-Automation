@@ -119,6 +119,7 @@ def format_output_excel(file_path: str) -> None:
     """
     workbook = load_workbook(file_path)
     worksheet = workbook.active
+    worksheet.title = "Voxx_Inventory"
 
     blue_fill = PatternFill(fill_type="solid", start_color="C0E6F5", end_color="C0E6F5")
     yellow_fill = PatternFill(fill_type="solid", start_color="FFFF00", end_color="FFFF00")
@@ -139,6 +140,7 @@ def format_output_excel(file_path: str) -> None:
         cell.fill = blue_fill
         cell.font = bold_font
         cell.border = border
+        cell.center_horizontal = True
 
     item_col = headers.get("Item")
     article_col = headers.get("Article")
@@ -147,9 +149,11 @@ def format_output_excel(file_path: str) -> None:
     for row in range(2, worksheet.max_row + 1):
         if item_col is not None:
             worksheet.cell(row=row, column=item_col).font = bold_font
+            worksheet.cell(row=row, column=item_col).center_horizontal = True
 
         if article_col is not None:
             worksheet.cell(row=row, column=article_col).font = bold_font
+            worksheet.cell(row=row, column=item_col).center_horizontal = True
 
         if total_col is not None:
             total_cell = worksheet.cell(row=row, column=total_col)
@@ -240,8 +244,7 @@ def main() -> None:
 
     print("Copying final file to OneDrive...")
     # Creates a subfolder in OneDrive Reports folder so it doesn't get mixed up with the raw NetSuite CSVs
-    onedrive_export_dir = os.path.join(reports_folder, "Completed_Inventory")
-    os.makedirs(onedrive_export_dir, exist_ok=True)
+    onedrive_export_dir = r"C:\Users\EthanSchrauf\OneDrive - Voxx Products\Desktop\Reports\Inventory Exports"
 
     onedrive_filepath = os.path.join(onedrive_export_dir, output_filename)
     shutil.copy2(output_filepath, onedrive_filepath)
