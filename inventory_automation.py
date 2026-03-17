@@ -6,7 +6,8 @@ from datetime import datetime
 
 import pandas as pd
 from openpyxl import load_workbook
-from openpyxl.styles import Font, PatternFill, Border, Side
+from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
+from openpyxl.worksheet.errors import IgnoredError
 
 # One drive folder paths that get replaced daily with the morning email.
 reports_folder = r"C:\Users\Administrator\OneDrive - Voxx Products\Desktop\Reports"
@@ -132,6 +133,8 @@ def format_output_excel(file_path: str) -> None:
                     top=Side(style=border_style, color=border_color),
                     bottom=Side(style=border_style, color=border_color))
 
+    center_align = Alignment(horizontal="center")
+
 
 
     headers = {}
@@ -140,7 +143,8 @@ def format_output_excel(file_path: str) -> None:
         cell.fill = blue_fill
         cell.font = bold_font
         cell.border = border
-        cell.center_horizontal = True
+        cell.alignment = center_align
+
 
     item_col = headers.get("Item")
     article_col = headers.get("Article")
@@ -149,23 +153,27 @@ def format_output_excel(file_path: str) -> None:
     for row in range(2, worksheet.max_row + 1):
         if item_col is not None:
             worksheet.cell(row=row, column=item_col).font = bold_font
-            worksheet.cell(row=row, column=item_col).center_horizontal = True
+            worksheet.cell(row=row, column=item_col).alignment = center_align
 
         if article_col is not None:
             worksheet.cell(row=row, column=article_col).font = bold_font
-            worksheet.cell(row=row, column=item_col).center_horizontal = True
+            worksheet.cell(row=row, column=item_col).alignment = center_align
+            worksheet.cell(row=row, column=item_col).number_format = '@'
 
         if total_col is not None:
             total_cell = worksheet.cell(row=row, column=total_col)
             total_cell.fill = yellow_fill
             total_cell.font = regular_font
+            total_cell.alignment = center_align
 
 
     for col in range(1, worksheet.max_column + 1):
         for row in range(1, worksheet.max_row + 1):
             worksheet.cell(row=row, column=col).border = border
+            worksheet.cell(row=row, column=col).alignment = center_align
 
     worksheet.column_dimensions["A"].width = 23
+
     workbook.save(file_path)
 
 
@@ -180,7 +188,7 @@ def main() -> None:
     print("Loading data...")
 
     today_str = datetime.today().strftime("%#m-%#d-%Y")
-    output_filename = f"{today_str} Inventory_NEW.xlsx"
+    output_filename = f"{today_str} Inventory_NEW2.xlsx"
     output_filepath = os.path.join(output_dir, output_filename)
 
     clean_columns = ["Item_Desc", "DT Code", "CA_Qty", "TN_Qty", "TX_Qty", "Total_Qty"]
@@ -244,7 +252,7 @@ def main() -> None:
 
     print("Copying final file to OneDrive...")
     # Creates a subfolder in OneDrive Reports folder so it doesn't get mixed up with the raw NetSuite CSVs
-    onedrive_export_dir = r"C:\Users\EthanSchrauf\OneDrive - Voxx Products\Desktop\Reports\Inventory Exports"
+    onedrive_export_dir = r"C:\Users\Administrator\OneDrive - Voxx Products\Desktop\Reports\Completed_Inventory"
 
     onedrive_filepath = os.path.join(onedrive_export_dir, output_filename)
     shutil.copy2(output_filepath, onedrive_filepath)
